@@ -48,7 +48,7 @@ void UTankAimingComponent::AimAt(FVector HitLocation,float LaunchSpeed)
 		//calculate outLaunch velocity direction
 		auto AimDirection = OutLaunchVelocity.GetSafeNormal();
 		
-		UE_LOG(LogTemp, Warning, TEXT("%s is aiming at %s"),*TankName, *AimDirection.ToString());
+		//UE_LOG(LogTemp, Warning, TEXT("%s is aiming at %s"),*TankName, *AimDirection.ToString());
 
 		//move barrel to aim at 
 		MoveBarrel(AimDirection);
@@ -57,7 +57,7 @@ void UTankAimingComponent::AimAt(FVector HitLocation,float LaunchSpeed)
 	}
 
 	//did not find 
-	UE_LOG(LogTemp, Warning, TEXT("%s No aim found"),*TankName);
+	//UE_LOG(LogTemp, Warning, TEXT("%s No aim found"),*TankName);
 	
 }
 

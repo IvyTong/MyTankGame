@@ -36,6 +36,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void SetTurrentReference(UTankTurrent* BarrelToSet);
 
+	UFUNCTION(BlueprintCallable)
+	void Fire();
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
