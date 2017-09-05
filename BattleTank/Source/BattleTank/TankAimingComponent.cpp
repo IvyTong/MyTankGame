@@ -7,7 +7,7 @@
 
 UTankAimingComponent::UTankAimingComponent()
 {
-	PrimaryComponentTick.bCanEverTick = true;
+	PrimaryComponentTick.bCanEverTick = false;
 }
 
 void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
@@ -71,6 +71,8 @@ void UTankAimingComponent::MoveBarrel(FVector AimDorection)
 	//move the barrel 
 	Barrel->Elevate(DeltaRotator.Pitch);
 
+	//move the turrent
+	Turrent->Rotate(DeltaRotator.Yaw);
 
 
 	//give a max elevatin speed

@@ -43,6 +43,6 @@ public:
 	void AimAt(FVector HitLocation);
 
 	UPROPERTY(EditAnywhere, Category = Firing)
-	float LaunchSpeed = 50000; //1000m/s
+	float LaunchSpeed = 4000; 
 
 };
