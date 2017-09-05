@@ -3,18 +3,21 @@
 #include "TankAimingComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "TankBarrel.h"
+#include "TankTurrent.h"
 
 UTankAimingComponent::UTankAimingComponent()
 {
 	PrimaryComponentTick.bCanEverTick = true;
 }
 
-
 void UTankAimingComponent::SetBarrelReference(UTankBarrel* BarrelToSet)
 {
 	Barrel = BarrelToSet;
 }
 
+void UTankAimingComponent::SetTurrentReference(UTankTurrent* TurrentToSet) {
+	Turrent = TurrentToSet;
+}
 
 void UTankAimingComponent::AimAt(FVector HitLocation,float LaunchSpeed)
 {
@@ -64,8 +67,11 @@ void UTankAimingComponent::MoveBarrel(FVector AimDorection)
 	auto AimAsRotator = AimDorection.Rotation();
 	auto DeltaRotator = AimAsRotator - BarrelRotation;
 
-	float DegreePersecond = 0;
+	
 	//move the barrel 
-	Barrel->Elevate(DegreePersecond);
+	Barrel->Elevate(DeltaRotator.Pitch);
+
+
+
 	//give a max elevatin speed
 }

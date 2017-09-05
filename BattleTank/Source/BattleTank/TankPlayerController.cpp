@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankPlayerController.h"
-
+#include "Tank.h"
 
 void ATankPlayerController::BeginPlay()
 {
@@ -36,9 +36,7 @@ void ATankPlayerController::AimTowardsCrossair()
 	FVector HitLocation;//out parameter
 	if (GetSightRayHitLocation(HitLocation))
 	{
-		//print out hit location
-		//UE_LOG(LogTemp, Warning, TEXT("Hit Location: %s"), *HitLocation.ToString());
-		//tell controlled tank to aim at this point
+		//tell the tank to aim at the hit location
 		GetControlledTank()->AimAt(HitLocation);
 	}
 	
@@ -50,12 +48,8 @@ bool ATankPlayerController::GetSightRayHitLocation(FVector& HitLocation)
 {
 	if(GetLookVectorHitLocation(HitLocation))
 	{
-
-		//tell the tank to aim at the hit location
-		GetControlledTank()->AimAt(HitLocation);
 		return true;
 	}
-
 
 	//return OUT parameter HitLocation
 	return false;
