@@ -27,6 +27,7 @@ void ATank::SetTurrentReference(UTankTurrent* TurrentToSet)
 }
 
 
+
 // Called when the game starts or when spawned
 void ATank::BeginPlay()
 {
