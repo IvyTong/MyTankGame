@@ -10,6 +10,7 @@
 class UTankAimingComponent;
 class UTankTurrent;
 class UTankBarrel;
+class AProjectile;
 //Hold barrel's property and elevation method
 
 UCLASS()
@@ -47,4 +48,12 @@ public:
 	UPROPERTY(EditAnywhere, Category = Firing)
 	float LaunchSpeed = 4000; 
 
+	UPROPERTY(EditAnywhere, Category = Setup)
+	TSubclassOf<AProjectile> ProjectileBlueprint;
+
+private:
+	UTankBarrel* Barrel = nullptr;
+
+	float ReloadTimeInSeconds = 3;
+	double LastFireTime = 0;
 };
